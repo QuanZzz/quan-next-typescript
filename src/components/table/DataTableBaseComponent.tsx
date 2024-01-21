@@ -1,17 +1,19 @@
 import cx from "classnames";
-import PropTypes from "prop-types";
-import { type dataProps, type columnsProps } from "@/lib/types";
+import { type dataRow, type columnsProps } from "@/lib/types";
 
 type DataTableBaseComponentProps = {
   className?: string;
-  data: dataProps;
+  data: dataRow[];
   columns: columnsProps;
+  // requestSort: (key: string) => number,  when want to return number
+  requestSort?: (key: string) => void;
 };
 
 export const DataTableBaseComponent = ({
   className,
   data,
   columns,
+  requestSort,
 }: DataTableBaseComponentProps) => {
   return (
     <table className={cx("w-full hidden sm:table w-full my-4", className)}>
@@ -21,6 +23,7 @@ export const DataTableBaseComponent = ({
             <th
               key={column.key}
               className={cx("p-3 font-bold text-base", column.columnClassname)}
+              onClick={() => requestSort && requestSort(column.key)}
             >
               <span className="inline-flex items-center flex-nowrap">
                 <button>
@@ -57,16 +60,4 @@ export const DataTableBaseComponent = ({
       </tbody>
     </table>
   );
-};
-
-DataTableBaseComponent.propTypes = {
-  className: PropTypes.string,
-  data: PropTypes.array,
-  columns: PropTypes.array,
-};
-
-DataTableBaseComponent.defaultProps = {
-  className: "",
-  data: null,
-  columns: null,
 };

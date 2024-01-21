@@ -1,9 +1,9 @@
 import cx from "classnames";
-import { type dataProps, type columnsProps } from "@/lib/types";
+import { type dataRow, type columnsProps } from "@/lib/types";
 
 type MobileDataTableBaseComponentProps = {
   className?: string;
-  data: dataProps;
+  data: dataRow[];
   columns: columnsProps;
 };
 

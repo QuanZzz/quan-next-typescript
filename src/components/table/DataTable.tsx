@@ -3,14 +3,7 @@ import PropTypes from "prop-types";
 import { TableHeader } from "./TableHeader";
 import { MobileDataTableBaseComponent } from "./MobileDataTableBaseComponent";
 import { DataTableBaseComponent } from "./DataTableBaseComponent";
-import { type dataProps, type columnsProps } from "@/lib/types";
-
-type DataTableProps = {
-  className: string;
-  header: string;
-  displayedData: dataProps;
-  columns: columnsProps;
-};
+import { type DataTableProps } from "@/lib/types";
 
 export const DataTable = ({
   className,
@@ -36,18 +29,4 @@ export const DataTable = ({
       <DataTableBaseComponent data={displayedData} columns={columns} />
     </div>
   );
-};
-
-DataTable.propTypes = {
-  className: PropTypes.string,
-  header: PropTypes.string,
-  displayedData: PropTypes.array,
-  columns: PropTypes.array,
-};
-
-DataTable.defaultProps = {
-  className: "",
-  header: "",
-  displayedData: null,
-  columns: null,
 };
