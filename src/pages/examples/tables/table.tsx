@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { Layout } from "@/components/Layout";
 import { DataTable } from "@/components/table/DataTable";
 import { personalInfo, personalColumns } from "@/utils/personalInfo";
 import { useEffect, useState } from "react";
@@ -26,7 +27,7 @@ export default function Page() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col items-center p-5">
+    <Layout>
       <DataTable
         header="Personal Information"
         displayedData={displayedData}
@@ -40,6 +41,6 @@ export default function Page() {
           <Button onClick={handleShowLessOnClick}>See Less</Button>
         )}
       </div>
-    </div>
+    </Layout>
   );
 }
