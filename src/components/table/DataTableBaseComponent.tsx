@@ -14,9 +14,13 @@ export const DataTableBaseComponent = ({
   data,
   columns,
   requestSort,
+  ...props
 }: DataTableBaseComponentProps) => {
   return (
-    <table className={cx("w-full hidden sm:table w-full my-4", className)}>
+    <table
+      className={cx("w-full hidden sm:table w-full my-4", className)}
+      {...props}
+    >
       <thead className="text-left">
         <tr>
           {columns.map((column) => (

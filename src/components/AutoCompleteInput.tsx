@@ -9,6 +9,7 @@ type AutoCompleteInputProps = {
 export const AutoCompleteInput = ({
   className,
   data,
+  ...props
 }: AutoCompleteInputProps) => {
   const [inputValue, setInputValue] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -80,6 +81,7 @@ export const AutoCompleteInput = ({
           value={inputValue}
           onChange={handleOnChange}
           onKeyDown={handleKeyDown}
+          {...props}
         />
       </div>
       {!!suggestions?.length && showSuggestions && (
