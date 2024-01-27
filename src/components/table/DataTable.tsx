@@ -1,5 +1,4 @@
 import cx from "classnames";
-import PropTypes from "prop-types";
 import { TableHeader } from "./TableHeader";
 import { MobileDataTableBaseComponent } from "./MobileDataTableBaseComponent";
 import { DataTableBaseComponent } from "./DataTableBaseComponent";

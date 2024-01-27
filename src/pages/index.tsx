@@ -38,6 +38,18 @@ export default function Page() {
           Auto Complete Table
         </Link>
       </div>
+
+      <div className="pt-4 flex flex-col">
+        <Typography className="pb-4" size="xl" semiBold>
+          Dropdown Examples:
+        </Typography>
+        <Link
+          href="/examples/dropdown"
+          className="hover:text-blue-500 hover:underline focused:text-blue-700"
+        >
+          Dropdown
+        </Link>
+      </div>
     </Layout>
   );
 }

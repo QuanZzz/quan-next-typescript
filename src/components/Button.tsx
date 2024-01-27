@@ -13,12 +13,15 @@ const VARIANTS = {
   textLink: "text-blue-500 underline hover:text-blue-700 hover:no-underline",
 };
 
+const DISABLED_STYLES = "bg-gray-300 text-gray-600 cursor-not-allowed";
+
 type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   className?: string;
   size?: "sm" | "md" | "lg";
   variant?: "primary" | "secondary" | "textLink";
+  disabled?: boolean;
 };
 
 export const Button = ({
@@ -27,15 +30,25 @@ export const Button = ({
   className,
   size = "md",
   variant = "primary",
+  disabled,
   ...props
 }: ButtonProps) => {
   const sizeClass = SIZES[size] || SIZES.md;
-  const variantClass = VARIANTS[variant] || VARIANTS.primary;
+  const variantClass = disabled
+    ? DISABLED_STYLES
+    : VARIANTS[variant] || VARIANTS.primary;
+  const disabledClass = disabled ? DISABLED_STYLES : "";
 
   return (
     <button
       onClick={onClick}
-      className={cx("font-bold rounded", sizeClass, variantClass, className)}
+      className={cx(
+        "font-bold rounded cursor-pointer",
+        sizeClass,
+        variantClass,
+        disabledClass,
+        className
+      )}
       {...props}
     >
       {children}
