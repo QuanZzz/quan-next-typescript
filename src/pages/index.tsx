@@ -64,11 +64,34 @@ export default function Page() {
         </Link>
       </div>
 
-      <UpvoteList
-        upvotes={upvotes}
-        upvoteOnClick={handleUpvoteOnClick}
-        addOnClick={handleAddOnClick}
-      />
+      <div className="pt-4 flex flex-col">
+        <Typography className="pb-4" size="xl" semiBold>
+          Upvotes Examples:
+        </Typography>
+        <UpvoteList
+          upvotes={upvotes}
+          upvoteOnClick={handleUpvoteOnClick}
+          addOnClick={handleAddOnClick}
+        />
+      </div>
+
+      <div className="pt-4 flex flex-col">
+        <Typography className="pb-4" size="xl" semiBold>
+          Modal Examples:
+        </Typography>
+        <Link
+          href="/examples/modals/textModal"
+          className="hover:text-blue-500 hover:underline focused:text-blue-700"
+        >
+          Text Modal
+        </Link>
+        <Link
+          href="/examples/modals/formModal"
+          className="hover:text-blue-500 hover:underline focused:text-blue-700"
+        >
+          Form Modal
+        </Link>
+      </div>
     </Layout>
   );
 }

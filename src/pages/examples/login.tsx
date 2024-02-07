@@ -1,7 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/Button";
 import { useEffect, useState } from "react";
-// import "@/app/globals.css";
 
 export default function Page() {
   const [credentials, setCredentials] = useState({
