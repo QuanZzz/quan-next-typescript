@@ -14,3 +14,15 @@ export type DataTableProps = {
   displayedData: dataRow[];
   columns: columnsProps;
 };
+
+export type Upvote = {
+  id: string;
+  selected: boolean;
+};
+
+export type UpvoteAction = {
+  type: string;
+  payload?: {
+    id: string;
+  };
+};

@@ -1,8 +1,21 @@
 import { Layout } from "@/components/Layout";
 import { Typography } from "@/components/Typography";
+import UpvoteList from "@/components/UpvoteList";
 import Link from "next/link";
+import { useContext } from "react";
+import { UpvoteContext } from "@/context/UpvoteContext";
 
 export default function Page() {
+  const { upvotes, dispatchUpvotes } = useContext(UpvoteContext);
+
+  const handleUpvoteOnClick = (id: string) => {
+    dispatchUpvotes({ type: "TOGGLE_UPVOTE", payload: { id } });
+  };
+
+  const handleAddOnClick = () => {
+    dispatchUpvotes({ type: "ADD_UPVOTE" });
+  };
+
   return (
     <Layout>
       <Typography tag="h1" bold size="3xl">
@@ -50,6 +63,12 @@ export default function Page() {
           Dropdown
         </Link>
       </div>
+
+      <UpvoteList
+        upvotes={upvotes}
+        upvoteOnClick={handleUpvoteOnClick}
+        addOnClick={handleAddOnClick}
+      />
     </Layout>
   );
 }

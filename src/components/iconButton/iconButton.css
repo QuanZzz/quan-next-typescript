@@ -1,0 +1,9 @@
+.selected {
+  background-color: #e5e8fd;
+  color: #253cf2;
+}
+
+.default {
+  background-color: #f4f6f8;
+  color: #343a40;
+}
