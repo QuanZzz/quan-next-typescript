@@ -92,6 +92,18 @@ export default function Page() {
           Form Modal
         </Link>
       </div>
+
+      <div className="pt-4 flex flex-col">
+        <Typography className="pb-4" size="xl" semiBold>
+          Tooltip Examples:
+        </Typography>
+        <Link
+          href="/examples/tooltips"
+          className="hover:text-blue-500 hover:underline focused:text-blue-700"
+        >
+          Tooltips
+        </Link>
+      </div>
     </Layout>
   );
 }

@@ -22,10 +22,7 @@ export const Modal = ({ children, className, isOpen, onClose }) => {
       onClick={handleOnClose}
     >
       <div className="md:w-[600px] w-[90%] mx-auto flex flex-col bg-white p-4 rounded">
-        <button
-          className="text-black text-xl place-self-end"
-          onClick={() => onClose()}
-        >
+        <button className="text-black text-xl place-self-end" onClick={onClose}>
           X
         </button>
         <div className="">{children}</div>

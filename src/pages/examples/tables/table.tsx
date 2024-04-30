@@ -2,12 +2,14 @@ import { Button } from "@/components/Button";
 import { Layout } from "@/components/Layout";
 import { DataTable } from "@/components/table/DataTable";
 import { personalInfo, personalColumns } from "@/utils/personalInfo";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function Page() {
   const [displayedData, setDisplayedData] = useState(personalInfo);
   const [showSeeLess, setShowSeeLess] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     setShowSeeLess(displayedData.length > 5);
@@ -41,6 +43,7 @@ export default function Page() {
           <Button onClick={handleShowLessOnClick}>See Less</Button>
         )}
       </div>
+      <Button onClick={() => router.back()}>Go back</Button>
     </Layout>
   );
 }
